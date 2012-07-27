@@ -18,7 +18,7 @@ rule 'CINK002', 'Prefer single-quoted strings' do
   cookbook do |path|
     recipes = Dir["#{path}/**/*.rb"]
     recipes.collect do |recipe|
-      lines = File.read(recipe).split("\n")
+      lines = File.readlines(recipe)
 
       lines.collect.with_index do |line, index|
         # Don't flag if there is a #{} or ' in the line
@@ -27,6 +27,27 @@ rule 'CINK002', 'Prefer single-quoted strings' do
             :filename => recipe,
             :matched => recipe,
             :line => index + 1,
+            :column => 0
+          }
+        end
+      end.compact
+    end.flatten
+  end
+end
+
+rule 'CINK003', 'Don\'t hardcode apache user or group' do
+  tags %w{bug}
+  cookbook do |path|
+    recipes = Dir["#{path}/**/*.rb"]
+    recipes.collect do |recipe|
+      lines = File.readlines(recipe)
+
+      lines.collect.with_index do |line, index|
+        if line.match('(group|owner)\s+[\\\'\"](apache|www-data|http|www)[\\\'\"]')
+          {
+            :filename => recipe,
+            :matched => recipe,
+            :line => index+1,
             :column => 0
           }
         end
