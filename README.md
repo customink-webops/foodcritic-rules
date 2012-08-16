@@ -22,3 +22,4 @@ Authors
 -------
 - CINK001 - [Seth Vargo](https://github.com/sethvargo)
 - CINK002 - [Seth Vargo](https://github.com/sethvargo)
+- CINK003 - [Seth Vargo](https://github.com/sethvargo)
