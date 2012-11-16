@@ -20,5 +20,6 @@ To keep this README as short as possible, each rule has its own Markdown file in
 
 Authors
 -------
-- CINK001 - [Seth Vargo](https://github.com/sethvargo)
-- CINK002 - [Seth Vargo](https://github.com/sethvargo)
+- CINK001 - Seth Vargo (sethvargo@gmail.com)
+- CINK002 - Seth Vargo (sethvargo@gmail.com)
+- CINK003 - Seth Vargo (sethvargo@gmail.com)
