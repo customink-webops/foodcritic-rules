@@ -7,7 +7,7 @@ Usage
 We recommend storing all your custom foodcritic rules as a git submodule in your Chef Hosted repository. Create a folder `foodcritic` in your repository's root and `cd` into that directory:
 
 ```
-git clone git@github.com:customink/foodcritic-rules.git foodcritic/customink
+git clone git@github.com:customink-webops/foodcritic-rules.git foodcritic/customink
 ```
 
 Now you can run include the CustomInk foodcritic rules like so:
