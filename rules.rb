@@ -30,7 +30,8 @@ end
 rule 'CINK002', 'Prefer single-quoted strings' do
   tags %w{style strings}
   cookbook do |path|
-    recipes = Dir["#{path}/**/*.rb"]
+    recipes  = Dir["#{path}/{#{standard_cookbook_subdirs.join(',')}}/**/*.rb"]
+    recipes += Dir["#{path}/*.rb"]
     recipes.collect do |recipe|
       lines = File.readlines(recipe)
 
@@ -52,7 +53,8 @@ end
 rule 'CINK003', 'Don\'t hardcode apache user or group' do
   tags %w{bug}
   cookbook do |path|
-    recipes = Dir["#{path}/**/*.rb"]
+    recipes  = Dir["#{path}/{#{standard_cookbook_subdirs.join(',')}}/**/*.rb"]
+    recipes += Dir["#{path}/*.rb"]
     recipes.collect do |recipe|
       lines = File.readlines(recipe)
 
