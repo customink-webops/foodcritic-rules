@@ -37,7 +37,10 @@ rule 'CINK002', 'Prefer single-quoted strings' do
 
       lines.collect.with_index do |line, index|
         # Don't flag if there is a #{} or ' in the line
-        if line.match('"(.*)"') && !line.match('\A\s?#') && !line.match('\'(.*)"(.*)"(.*)\'') && !line.match('"(.*)(#{.+}|\'|\\\a|\\\b|\\\r|\\\n|\\\s|\\\t)(.*)"')
+        if line.match('"(.*)"') &&
+          !line.match('\A\s*#') &&
+          !line.match('\'(.*)"(.*)"(.*)\'') &&
+          !line.match('"(.*)(#{.+}|\'|\\\a|\\\b|\\\r|\\\n|\\\s|\\\t)(.*)"')
           {
             :filename => recipe,
             :matched => recipe,
