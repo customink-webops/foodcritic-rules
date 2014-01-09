@@ -18,7 +18,7 @@
 
 
 rule 'CINK001', 'Missing CHANGELOG in markdown format' do
-  tags %w{style changelog}
+  tags %w{style changelog cink}
   cookbook do |path|
     filepath = File.join(path, 'CHANGELOG.md')
     unless File.exists?(filepath)
@@ -28,7 +28,7 @@ rule 'CINK001', 'Missing CHANGELOG in markdown format' do
 end
 
 rule 'CINK002', 'Prefer single-quoted strings' do
-  tags %w{style strings}
+  tags %w{style strings cink}
   cookbook do |path|
     recipes  = Dir["#{path}/{#{standard_cookbook_subdirs.join(',')}}/**/*.rb"]
     recipes += Dir["#{path}/*.rb"]
@@ -54,7 +54,7 @@ rule 'CINK002', 'Prefer single-quoted strings' do
 end
 
 rule 'CINK003', 'Don\'t hardcode apache user or group' do
-  tags %w{bug}
+  tags %w{bug cink}
   cookbook do |path|
     recipes  = Dir["#{path}/{#{standard_cookbook_subdirs.join(',')}}/**/*.rb"]
     recipes += Dir["#{path}/*.rb"]
