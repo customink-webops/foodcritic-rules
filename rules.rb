@@ -40,6 +40,7 @@ rule 'CINK002', 'Prefer single-quoted strings' do
         if line.match('"(.*)"') &&
           !line.match('\A\s*#') &&
           !line.match('\'(.*)"(.*)"(.*)\'') &&
+          !line.match('\`(.*)"(.*)"(.*)\`') &&
           !line.match('"(.*)(#{.+}|\'|\\\a|\\\b|\\\r|\\\n|\\\s|\\\t)(.*)"')
           {
             :filename => recipe,
